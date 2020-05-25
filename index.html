@@ -17,8 +17,7 @@ function logEvent() {
     //alert("Android");
     window.AnalyticsWebInterface.receivedUserData("123", "Karthikeyan", "9876543210");
   } else if (window.webkit
-      && window.webkit.messageHandlers
-      && window.webkit.messageHandlers.firebase) {
+      && window.webkit.messageHandlers) {
     // Call iOS interface
     alert("iOS");
     var message = { command: 'logEvent', userID: "123", name: "Karthikeyan", phone: "9876543210" };
