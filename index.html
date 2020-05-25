@@ -24,7 +24,7 @@ function logEvent() {
     var message = { command: 'logEvent', userID: "123", name: "Karthikeyan", phone: "9876543210" };
     window.webkit.messageHandlers.postMessage(message);
   } else {
-    // No Android or iOS interface found
+    // Web interface
     alert("Web");
   }
 }
