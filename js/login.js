@@ -2,6 +2,27 @@ var storage = window.localStorage;
 
 var loginCredentials = { username : "", password : "" }
 
+		document.getElementById("datagranLogout").addEventListener("click", function() {
+             datagranButtonOnclick("Logout");
+        });
+        document.getElementById("datagranOnClick").addEventListener("click", function() {
+             datagranButtonOnclick("onClick");
+        });
+        
+        document.getElementById("datagranOnKeyPress").addEventListener("input", function() {
+             var str = this.value;
+             datagranOnKeyPress(str.charAt(str.length-1));
+        });
+        document.getElementById("datagranOnFocusChange").addEventListener("focusout", function() {
+             datagranOnFocusChange("datagranOnFocusChange");
+        });
+        document.getElementById("dropdown").addEventListener("change", function() {
+            if(this.value != -1)
+                datagranDropdownChange(this.id, this.value);
+        });
+
+        document.addEventListener("backbutton", onBackKeyDown, false);
+
 var success = function(message) {
     //alert(message);
 }
