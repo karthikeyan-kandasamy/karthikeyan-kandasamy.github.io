@@ -1,95 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery/jquery.min.js"></script>
+	<script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+img {
+  border: 1px solid #ddd;
+  border-radius: 30%;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
 }
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-  align: center;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+.center {
+  margin: 2%;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 </style>
-</head>
-<body>
+        <title>Datagran cordova template</title>
+    </head>
 
-<h2>Login Form</h2>
+<body class="app">
 
-<form action="/action_page.php" method="post">
+    <!-- login page -->
+    <div data-role="page" id="login">
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+	<!-- login header -->
+        <div data-theme="a" data-role="header">
+            <h3>Login</h3>
+        </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+	<!-- login form -->
+        <div data-role="content">
+            <input type="text" value="" name="username" id="username" placeholder="Email (or) Mobile number (or) Username"/>
+            <input type="password" value="" name="password" id="password" placeholder="Password"/>
+            <a data-role="button" id="login-button" data-theme="b">SIGN IN</a>
+        </div>
 
-  <div class="imgcontainer">
-    <span style="text-align: center;">Version Number: 1.1.4</span>
-  </div>
-</form>
+	<!-- login footer -->
+        <div data-theme="a" data-role="footer" data-position="fixed">
+		<h3>Version Number: 1.1.2</h3>
+	</div>
 
+    </div>
+
+    <!-- home page -->
+    <div data-role="page" id="index">
+
+	<!-- home pager header -->
+        <div data-theme="a" data-role="header">
+            <h3>Tracking</h3>
+        </div>
+
+	<!-- home page body -->
+        <div data-role="content">
+            <h4>Send GPS data to server</h4>
+            <div class="center">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="off" checked="checked">
+                <label for="radio-choice-h-2a">OFF</label>
+                <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="on">
+                <label for="radio-choice-h-2b">ON</label>
+                </fieldset></div><br><br>
+            <h4>onFocusChange Event</h4>
+            <input type="text" id = "datagranOnFocusChange" placeholder="Type Anything and Tap Next"><br>
+            <h4>onKeyPress Event</h4>
+            <input type="text" id = "datagranOnKeyPress" placeholder="Type Anything and Tap Next"><br>
+            <h4 for="dropdown">Dropdown Event</label></h4>
+                <select id="dropdown" name="dropdown">
+                    <option value="-1"> -- Please select -- </option>
+                    <option value="Datagran">Datagran</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Google">Google</option>
+                    <option value="Yahoo">Yahoo</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Apple">Apple</option>
+                </select><br>
+            <h4>Click Event</h4>
+            <button id = "datagranOnClick">BUTTON</button>
+            <!--<br><button id = "datagranOnDoubleClick">BUTTON ONDOUBLE CLICK</button><br>-->
+        </div>
+
+	<!-- home page footer -->
+        <div data-theme="a" data-role="footer" data-position="fixed">
+            <h3><a data-role="button" id="datagranLogout" data-theme="b">LOGOUT</a></h3>
+        </div>
+
+    </div>
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/datagran.js"></script>
 </body>
+
 </html>

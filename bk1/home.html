@@ -1,57 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css" />
-	<script src="js/jquery/jquery.min.js"></script>
-	<script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
-<style>
-img {
-  border: 1px solid #ddd;
-  border-radius: 30%;
-  padding: 5px;
-  width: 50px;
-  height: 50px;
-}
-.center {
-  margin: 2%;
-  position: absolute;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-</style>
-        <title>Datagran cordova template</title>
-    </head>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 
-<body class="app">
-
-    <!-- login page -->
-    <div data-role="page" id="login">
-
-	<!-- login header -->
-        <div data-theme="a" data-role="header">
-            <h3>Login</h3>
-        </div>
-
-	<!-- login form -->
-        <div data-role="content">
-            <input type="text" value="" name="username" id="username" placeholder="Email (or) Mobile number (or) Username"/>
-            <input type="password" value="" name="password" id="password" placeholder="Password"/>
-            <a data-role="button" id="login-button" data-theme="b">SIGN IN</a>
-        </div>
-
-	<!-- login footer -->
-        <div data-theme="a" data-role="footer" data-position="fixed">
-		<h3>Version Number: 1.1.1</h3>
-	</div>
-
-    </div>
-
-    <!-- home page -->
+<h2>Home Form</h2>
+<!-- home page -->
     <div data-role="page" id="index">
 
 	<!-- home pager header -->
@@ -94,10 +49,5 @@ img {
         </div>
 
     </div>
-    <!-- <script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/datagran.js"></script>
-</body>
-
+    </body>
 </html>
