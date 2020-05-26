@@ -25,6 +25,7 @@ var loginCredentials = { username : "", password : "" }
         
         document.getElementById("login-button").addEventListener("click", function() {
         	if($('#username').val().length > 0 && $('#password').val().length > 0){
+        	alert(0);
             	loginCredentials.username = $('#username').val();
             	loginCredentials.password = $('#password').val();
             	alert(1);
