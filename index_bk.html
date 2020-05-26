@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  alert("href :: " +window.location.href);
+  alert("hostname :: " +window.location.hostname);
+  alert("pathname :: " +window.location.pathname);
+  alert("protocol :: " +window.location.protocol);
+  alert("port :: " +window.location.port);
+}
+
+function logEvent() {
+
+  if (window.AnalyticsWebInterface) {
+    // Call Android interface
+    //alert("Android");
+    window.AnalyticsWebInterface.receivedUserData("123", "Karthikeyan", "9876543210");
+  } else if (window.webkit
+      && window.webkit.messageHandlers) {
+    // Call iOS interface
+    alert("iOS");
+    var message = { command: 'logEvent', userID: "123", name: "Karthikeyan", phone: "9876543210" };
+    window.webkit.messageHandlers.handlerName.postMessage(message);
+  } else {
+    // Web interface
+    alert("Web");
+  }
+}
+</script>
+</head>
+
+<body onload="logEvent()">
+<h1>Datagran Sample !!! </h1>
+</body>
+
+</html>
