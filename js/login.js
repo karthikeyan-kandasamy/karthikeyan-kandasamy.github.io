@@ -24,12 +24,9 @@ var loginCredentials = { username : "", password : "" }
         document.addEventListener("backbutton", onBackKeyDown, false);
         
         document.getElementById("login-button").addEventListener("click", function() {
-        alert(1100);
         	if($('#username').val().length > 0 && $('#password').val().length > 0){
-        	alert(0);
             	loginCredentials.username = $('#username').val();
             	loginCredentials.password = $('#password').val();
-            	alert(1 + " " + loginCredentials.username);
             	datagranIdentify(loginCredentials.username);
             	//var outputJSON = JSON.stringify(loginCredentials);
             	//loginAuth.login({action : 'login', outputJSON : outputJSON});
@@ -49,7 +46,6 @@ var failure = function(message) {
 function datagranIdentify(userId) {
     //cordova.plugins.datagran.identify(userId, success, failure);
     identify(userId);
-    alert(2);
     storage.setItem("login", true);
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
