@@ -29,7 +29,7 @@ var loginCredentials = { username : "", password : "" }
         	alert(0);
             	loginCredentials.username = $('#username').val();
             	loginCredentials.password = $('#password').val();
-            	alert(1);
+            	alert(1 + " " + loginCredentials.username);
             	datagranIdentify(loginCredentials.username);
             	//var outputJSON = JSON.stringify(loginCredentials);
             	//loginAuth.login({action : 'login', outputJSON : outputJSON});
