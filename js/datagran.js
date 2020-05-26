@@ -15,7 +15,7 @@ function identify(custom_user_id) {
   } else {
     // Call Web interface
     
-    alert("Web");
+    alert("identify Web");
   }
 }
 
@@ -36,7 +36,7 @@ function reset() {
   } else {
     // Call Web interface
     
-    alert("Web");
+    alert("reset Web");
   }
 }
 
@@ -58,7 +58,7 @@ function trackCustom(name, params) {
   } else {
   	// Call Web interface
   
-    alert("Web");
+    alert("trackCustom Web");
   }
 }
 
@@ -79,7 +79,7 @@ function updateGeoParam(addGeo) {
   } else {
   	// Call Web interface
   
-    alert("Web");
+    alert("updateGeoParam Web");
   }
 }
 
