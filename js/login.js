@@ -22,6 +22,18 @@ var loginCredentials = { username : "", password : "" }
         });
 
         document.addEventListener("backbutton", onBackKeyDown, false);
+        
+        document.getElementById("login-button").addEventListener("click", function() {
+        	if($('#username').val().length > 0 && $('#password').val().length > 0){
+            	loginCredentials.username = $('#username').val();
+            	loginCredentials.password = $('#password').val();
+            	datagranIdentify(loginCredentials.username);
+            	//var outputJSON = JSON.stringify(loginCredentials);
+            	//loginAuth.login({action : 'login', outputJSON : outputJSON});
+        	} else {
+            	alert('Fields must not be empty');
+        	}
+        });
 
 var success = function(message) {
     //alert(message);
@@ -101,18 +113,6 @@ function setupPageLogin(){
         setupPageHome(3);
         return;
     }
-
-    $('#login-button').on('click', function(){
-        if($('#username').val().length > 0 && $('#password').val().length > 0){
-            loginCredentials.username = $('#username').val();
-            loginCredentials.password = $('#password').val();
-            datagranIdentify(loginCredentials.username);
-            //var outputJSON = JSON.stringify(loginCredentials);
-            //loginAuth.login({action : 'login', outputJSON : outputJSON});
-        } else {
-            alert('Fields must not be empty');
-        }
-    });
 
 }
 
