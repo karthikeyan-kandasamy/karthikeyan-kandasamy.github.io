@@ -22,18 +22,6 @@ var loginCredentials = { username : "", password : "" }
         });
 
         document.addEventListener("backbutton", onBackKeyDown, false);
-        
-        document.getElementById("login-button").addEventListener("click", function() {
-        	if($('#username').val().length > 0 && $('#password').val().length > 0){
-            	loginCredentials.username = $('#username').val();
-            	loginCredentials.password = $('#password').val();
-            	datagranIdentify(loginCredentials.username);
-            	//var outputJSON = JSON.stringify(loginCredentials);
-            	//loginAuth.login({action : 'login', outputJSON : outputJSON});
-        	} else {
-            	alert('Fields must not be empty');
-        	}
-        });
 
 var success = function(message) {
     //alert(message);
@@ -52,7 +40,6 @@ function datagranIdentify(userId) {
     storage.setItem("username", loginCredentials.username);
     storage.setItem("password", loginCredentials.password);
     setupPageHome(1);
-    alert(3);
 }
 
 function datagranButtonOnclick(name) {
@@ -114,6 +101,18 @@ function setupPageLogin(){
         setupPageHome(3);
         return;
     }
+
+    $('#login-button').on('click', function(){
+        if($('#username').val().length > 0 && $('#password').val().length > 0){
+            loginCredentials.username = $('#username').val();
+            loginCredentials.password = $('#password').val();
+            datagranIdentify(loginCredentials.username);
+            //var outputJSON = JSON.stringify(loginCredentials);
+            //loginAuth.login({action : 'login', outputJSON : outputJSON});
+        } else {
+            alert('Fields must not be empty');
+        }
+    });
 
 }
 
