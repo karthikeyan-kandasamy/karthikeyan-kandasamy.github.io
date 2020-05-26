@@ -47,7 +47,7 @@ function trackCustom(name, params) {
     // Call Android interface
     
     //alert("Android");
-    window.DatagranWebInterface.identify(name, JSON.stringify(params));
+    window.DatagranWebInterface.trackCustom(name, JSON.stringify(params));
   } else if (window.webkit
       && window.webkit.messageHandlers) {
     // Call iOS interface
