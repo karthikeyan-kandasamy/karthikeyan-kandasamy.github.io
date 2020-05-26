@@ -6,22 +6,19 @@ var success = function(message) {
     //alert(message);
 }
 
-var loginSuccess = function(message) {
+var failure = function(message) {
+    alert(message);
+}
+
+function datagranIdentify(userId) {
+    //cordova.plugins.datagran.identify(userId, success, failure);
+    identify(userId);
     storage.setItem("login", true);
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
     storage.setItem("username", loginCredentials.username);
     storage.setItem("password", loginCredentials.password);
     setupPageHome(1);
-}
-
-var failure = function(message) {
-    alert(message);
-}
-
-function datagranIdentify(userId) {
-    //cordova.plugins.datagran.identify(userId, loginSuccess, failure);
-    alert(userId);
 }
 
 function datagranButtonOnclick(name) {
@@ -32,7 +29,8 @@ function datagranButtonOnclick(name) {
 }
 
 function datagranLogout() {
-    cordova.plugins.datagran.resetDGuserid(success, failure);
+    //cordova.plugins.datagran.resetDGuserid(success, failure);
+    reset();
     storage.setItem("login", false);
     loginCredentials.username = "";
     loginCredentials.password = "";
@@ -42,9 +40,9 @@ function datagranLogout() {
 }
 
 function datagranOnClick(actName) {
-    var trackOnClickEventJson = {eventName: "onClick", name: actName, type: "AppCompatButton"};
+    var eventJson = {name: actName, type: "AppCompatButton"};
     //cordova.plugins.datagran.trackCustom(trackOnClickEventJson, success, failure);
-    alert(actName);
+    trackCustom(eventName, eventJson);
 }
 
 /*function datagranOnDoubleClick(actName) {
@@ -53,27 +51,27 @@ function datagranOnClick(actName) {
 }*/
 
 function datagranDropdownChange(id, menu) {
-    var trackDropdownEventJson = {eventName: "DropDown", elementID: id, name: menu};
+    var eventJson = {elementID: id, name: menu};
     //cordova.plugins.datagran.trackCustom(trackDropdownEventJson, success, failure);
-    alert(menu);
+    trackCustom(eventName, eventJson);
 }
 
 function datgranTrackViews(view) {
-    var trackTrackViewJson = {eventName: "Views", viewName: view};
+    var eventJson = {viewName: view};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    alert(view);
+    trackCustom(eventName, eventJson);
 }
 
 function datagranOnKeyPress(val) {
-    var trackTrackViewJson = {eventName: "onKeyPress", value: val};
+    var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    alert(val);
+    trackCustom(eventName, eventJson);
 }
 
 function datagranOnFocusChange(val) {
-    var trackTrackViewJson = {eventName: "onFocusChange", value: val};
+    var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    alert(val);
+    trackCustom(eventName, eventJson);
 }
 
 
@@ -119,15 +117,15 @@ function setupPageHome(id) {
     //$(this).find('[data-role="header"] h3').append('Tracking');
 }
 
-function invokeCordova(val) {
+function invokeUpdateGeoParam(val) {
     //cordova.plugins.datagran.updateGeoParam(val, loginSuccess, failure);
-    alert(val);
+    updateGeoParam(val);
 }
 
 
 $(function() {
     $('input:radio[name="radio-choice-h-2"]').change(function() {
-        invokeCordova($(this).val());
+        invokeUpdateGeoParam($(this).val());
     });
 });
 
