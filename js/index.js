@@ -33,8 +33,7 @@ var app = {
             datgranTrackViews("LoginView");
         }
         document.getElementById("datagranLogout").addEventListener("click", function() {
-             //datagranButtonOnclick("Logout");
-             alert("sdfsdfds");
+             datagranButtonOnclick("Logout");
         });
         document.getElementById("datagranOnClick").addEventListener("click", function() {
              datagranButtonOnclick("onClick");

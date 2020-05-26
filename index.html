@@ -46,7 +46,7 @@ img {
 
 	<!-- login footer -->
         <div data-theme="a" data-role="footer" data-position="fixed">
-		<h3>Version Number: 1.1.5</h3>
+		<h3>Version Number: 1.1.6</h3>
 	</div>
 
     </div>
@@ -84,17 +84,17 @@ img {
                     <option value="Apple">Apple</option>
                 </select><br>
             <h4>Click Event</h4>
-            <button id = "datagranOnClick">BUTTON</button>
+            <button id = "datagranOnClick" onclick = "datagranButtonOnclick('onClick')">BUTTON</button>
             <!--<br><button id = "datagranOnDoubleClick">BUTTON ONDOUBLE CLICK</button><br>-->
         </div>
 
 	<!-- home page footer -->
         <div data-theme="a" data-role="footer" data-position="fixed">
-            <h3><a data-role="button" id="datagranLogout" data-theme="b">LOGOUT</a></h3>
+            <h3><a data-role="button" id="datagranLogout" data-theme="b" onclick = "datagranButtonOnclick('Logout')">LOGOUT</a></h3>
         </div>
 
     </div>
-    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/datagran.js"></script>
