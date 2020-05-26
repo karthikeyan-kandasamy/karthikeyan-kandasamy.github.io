@@ -7,7 +7,7 @@ var success = function(message) {
 }
 
 var failure = function(message) {
-    alert(message);
+    //alert(message);
 }
 
 function datagranIdentify(userId) {
