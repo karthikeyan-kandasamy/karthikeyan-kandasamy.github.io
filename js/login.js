@@ -33,7 +33,7 @@ var failure = function(message) {
 
 function datagranIdentify(userId) {
     //cordova.plugins.datagran.identify(userId, success, failure);
-    dg_tracker.identify(userId);
+    _dgTrack('identify', userId);
     storage.setItem("login", true);
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
@@ -51,7 +51,7 @@ function datagranButtonOnclick(name) {
 
 function datagranLogout() {
     //cordova.plugins.datagran.resetDGuserid(success, failure);
-    dg_tracker.reset();
+    _dgTrack('reset');
     storage.setItem("login", false);
     loginCredentials.username = "";
     loginCredentials.password = "";
