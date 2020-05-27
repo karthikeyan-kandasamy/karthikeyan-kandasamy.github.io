@@ -372,7 +372,8 @@ var regexObj = {
             return arrayFields;
         }
         var track = function (params) {
-            var event_params, core_params;
+        	alert(params);
+            /*var event_params, core_params;
             var l = lib.getLocalDateTime();
             params.d = l.d;
             params.s = l.t;
@@ -382,7 +383,7 @@ var regexObj = {
             var final_event = core_params + '&ev=' + event_params;
             var end_point = "https://cdn2-dev.datagran.io/pixel.png?";
             var img = new Image();
-            img.src = end_point + final_event;
+            img.src = end_point + final_event;*/
         };
         var trackPageView = function () {
             var payload = {

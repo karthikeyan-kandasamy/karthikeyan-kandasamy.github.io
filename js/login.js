@@ -63,7 +63,7 @@ function datagranLogout() {
 function datagranOnClick(actName) {
     var eventJson = {name: actName, type: "AppCompatButton"};
     //cordova.plugins.datagran.trackCustom(trackOnClickEventJson, success, failure);
-    trackCustom("onClick", eventJson);
+    trackEvent("onClick", eventJson);
 }
 
 /*function datagranOnDoubleClick(actName) {
@@ -74,25 +74,25 @@ function datagranOnClick(actName) {
 function datagranDropdownChange(id, menu) {
     var eventJson = {elementID: id, name: menu};
     //cordova.plugins.datagran.trackCustom(trackDropdownEventJson, success, failure);
-    trackCustom("DropDown", eventJson);
+    trackEvent("DropDown", eventJson);
 }
 
 function datgranTrackViews(view) {
     var eventJson = {viewName: view};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackCustom("Views", eventJson);
+    trackEvent("Views", eventJson);
 }
 
 function datagranOnKeyPress(val) {
     var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackCustom("onKeyPress", eventJson);
+    trackEvent("onKeyPress", eventJson);
 }
 
 function datagranOnFocusChange(val) {
     var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackCustom("onFocusChange", eventJson);
+    trackEvent("onFocusChange", eventJson);
 }
 
 
