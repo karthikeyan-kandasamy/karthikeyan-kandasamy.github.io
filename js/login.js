@@ -33,7 +33,7 @@ var failure = function(message) {
 
 function datagranIdentify(userId) {
     //cordova.plugins.datagran.identify(userId, success, failure);
-    identify(userId);
+    dg_tracker.identify(userId);
     storage.setItem("login", true);
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
@@ -51,7 +51,7 @@ function datagranButtonOnclick(name) {
 
 function datagranLogout() {
     //cordova.plugins.datagran.resetDGuserid(success, failure);
-    reset();
+    dg_tracker.reset();
     storage.setItem("login", false);
     loginCredentials.username = "";
     loginCredentials.password = "";
@@ -63,7 +63,7 @@ function datagranLogout() {
 function datagranOnClick(actName) {
     var eventJson = {name: actName, type: "AppCompatButton"};
     //cordova.plugins.datagran.trackCustom(trackOnClickEventJson, success, failure);
-    trackEvent("onClick", eventJson);
+    _dgTrack("onClick", eventJson);
 }
 
 /*function datagranOnDoubleClick(actName) {
@@ -74,25 +74,25 @@ function datagranOnClick(actName) {
 function datagranDropdownChange(id, menu) {
     var eventJson = {elementID: id, name: menu};
     //cordova.plugins.datagran.trackCustom(trackDropdownEventJson, success, failure);
-    trackEvent("DropDown", eventJson);
+    _dgTrack("DropDown", eventJson);
 }
 
 function datgranTrackViews(view) {
     var eventJson = {viewName: view};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackEvent("Views", eventJson);
+    _dgTrack("Views", eventJson);
 }
 
 function datagranOnKeyPress(val) {
     var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackEvent("onKeyPress", eventJson);
+    _dgTrack("onKeyPress", eventJson);
 }
 
 function datagranOnFocusChange(val) {
     var eventJson = {value: val};
     //cordova.plugins.datagran.trackCustom(trackTrackViewJson, success, failure);
-    trackEvent("onFocusChange", eventJson);
+    _dgTrack("onFocusChange", eventJson);
 }
 
 
