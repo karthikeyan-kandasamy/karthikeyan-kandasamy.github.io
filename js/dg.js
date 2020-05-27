@@ -1,5 +1,3 @@
-<!-- Datagran Analytics 
-<script> -->
 (function (w,d,e,o) {
     var l = d.createElement("script");
     _dgQ = [];
@@ -26,5 +24,3 @@ _dgTrack = function (n, p) {
       _dgQ.push([n, p]);
   }
 }
-<!-- </script>
-End Datagran Analytics -->
