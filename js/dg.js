@@ -13,7 +13,8 @@
     w[o].internal_name = "Karthik_Test";
 })(
   window, document,
-  "js/datagran.js",
+  //"js/datagran.js",
+  "https://raw.githubusercontent.com/karthikeyan-kandasamy/karthikeyan-kandasamy.github.io/master/datagran.js",
   "datagran"
 );
 _dgTrack = function (n, p) {
