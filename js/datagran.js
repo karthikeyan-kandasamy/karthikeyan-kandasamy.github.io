@@ -326,8 +326,19 @@ var regexObj = {
             customData = n;
         };
         var resetUser = function () {
-            lib.delCookie('_lvsa', domain);
-            lib.delCookie('_lvu', domain);
+			if (window.DatagranWebInterface) {
+    			// Call Android interface
+    			window.DatagranWebInterface.reset();
+  			} else if (window.webkit && window.webkit.messageHandlers) {
+    			// Call iOS interface
+        		var message = { command: 'reset' };
+    			window.webkit.messageHandlers.datagran.postMessage(message);
+  			} else {
+    			// Call Web interface
+    			alert("web reset");
+            	lib.delCookie('_lvsa', domain);
+            	lib.delCookie('_lvu', domain);
+  			}
         }
         var getIdentityUser = function (arrayFields, form) {
             var userIdentify = null;
@@ -372,18 +383,54 @@ var regexObj = {
             return arrayFields;
         }
         var track = function (params) {
-        	alert(params);
-            /*var event_params, core_params;
-            var l = lib.getLocalDateTime();
-            params.d = l.d;
-            params.s = l.t;
-            event_params = lib.encodeBase64Params(params);
-            core_params = lib.geteveryEventObj(aid, wid, internal_name, domain, customData);
-            core_params = lib.urlencode(core_params);
-            var final_event = core_params + '&ev=' + event_params;
-            var end_point = "https://cdn2-dev.datagran.io/pixel.png?";
-            var img = new Image();
-            img.src = end_point + final_event;*/
+        	//alert(JSON.stringify(params));
+        	if(params.et == "ce" && params.p.en == "identify") {
+        		if (window.DatagranWebInterface) {
+    				// Call Android interface
+				    window.DatagranWebInterface.identify(custom_user_id);
+  				} else if (window.webkit && window.webkit.messageHandlers) {
+    				// Call iOS interface
+        			var message = { command: 'identify', userId: custom_user_id };
+    				window.webkit.messageHandlers.datagran.postMessage(message);
+  				} else {
+    				// Call Web interface
+    				alert("web identify");
+    				var event_params, core_params;
+            		var l = lib.getLocalDateTime();
+            		params.d = l.d;
+            		params.s = l.t;
+            		event_params = lib.encodeBase64Params(params);
+            		core_params = lib.geteveryEventObj(aid, wid, internal_name, domain, customData);
+            		core_params = lib.urlencode(core_params);
+            		var final_event = core_params + '&ev=' + event_params;
+            		var end_point = "https://cdn2-dev.datagran.io/pixel.png?";
+            		var img = new Image();
+            		img.src = end_point + final_event;
+  				}
+        	} else {
+        	    if (window.DatagranWebInterface) {
+    				// Call Android interface
+				    window.DatagranWebInterface.trackCustom(name, JSON.stringify(params));
+  				} else if (window.webkit && window.webkit.messageHandlers) {
+    				// Call iOS interface
+        			var message = { command: 'trackCustom', name: params.et, parameters: params.p };
+    				window.webkit.messageHandlers.datagran.postMessage(message);
+  				} else {
+    				// Call Web interface
+    				alert("web track custom");
+    				var event_params, core_params;
+            		var l = lib.getLocalDateTime();
+            		params.d = l.d;
+            		params.s = l.t;
+            		event_params = lib.encodeBase64Params(params);
+            		core_params = lib.geteveryEventObj(aid, wid, internal_name, domain, customData);
+            		core_params = lib.urlencode(core_params);
+            		var final_event = core_params + '&ev=' + event_params;
+            		var end_point = "https://cdn2-dev.datagran.io/pixel.png?";
+            		var img = new Image();
+            		img.src = end_point + final_event;
+  				}
+        	}
         };
         var trackPageView = function () {
             var payload = {
@@ -517,7 +564,6 @@ var regexObj = {
                 et: 'ce',
                 p: ev,
             };
-
             track(params);
         }
 
@@ -531,7 +577,6 @@ var regexObj = {
                 trackPageView();
                 trackFormSubmit();
                 trackElementClick();
-
             },
             trackEvent: function (en, params) {
                 trackEvent(en, params);
