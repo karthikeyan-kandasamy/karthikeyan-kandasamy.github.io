@@ -387,10 +387,10 @@ var regexObj = {
         	if(params.et == "ce" && params.p.en == "identify") {
         		if (window.DatagranWebInterface) {
     				// Call Android interface
-				    window.DatagranWebInterface.identify(custom_user_id);
+				    window.DatagranWebInterface.identify(params.p.ep);
   				} else if (window.webkit && window.webkit.messageHandlers) {
     				// Call iOS interface
-        			var message = { command: 'identify', userId: custom_user_id };
+        			var message = { command: 'identify', userId: params.p.ep };
     				window.webkit.messageHandlers.datagran.postMessage(message);
   				} else {
     				// Call Web interface
