@@ -335,7 +335,7 @@ var regexObj = {
     			window.webkit.messageHandlers.datagran.postMessage(message);
   			} else {
     			// Call Web interface
-    			alert("web reset");
+    			//alert("web reset");
             	lib.delCookie('_lvsa', domain);
             	lib.delCookie('_lvu', domain);
   			}
@@ -394,7 +394,7 @@ var regexObj = {
     				window.webkit.messageHandlers.datagran.postMessage(message);
   				} else {
     				// Call Web interface
-    				alert("web identify");
+    				//alert("web identify");
     				var event_params, core_params;
             		var l = lib.getLocalDateTime();
             		params.d = l.d;
@@ -417,7 +417,7 @@ var regexObj = {
     				window.webkit.messageHandlers.datagran.postMessage(message);
   				} else {
     				// Call Web interface
-    				alert("web track custom");
+    				//alert("web track custom");
     				var event_params, core_params;
             		var l = lib.getLocalDateTime();
             		params.d = l.d;
