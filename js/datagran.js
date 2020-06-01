@@ -410,10 +410,17 @@ var regexObj = {
         	} else {
         	    if (window.DatagranWebInterface) {
     				// Call Android interface
-				    window.DatagranWebInterface.trackCustom(params.p.en, JSON.stringify(params));
+    				if(params.p.en == null) 
+				    	window.DatagranWebInterface.trackCustom(params.et, JSON.stringify(params));
+				    else
+				    	window.DatagranWebInterface.trackCustom(params.p.en, JSON.stringify(params));
   				} else if (window.webkit && window.webkit.messageHandlers) {
     				// Call iOS interface
-        			var message = { command: 'trackCustom', name: params.p.en, parameters: params.p };
+        			var message;
+        			if(params.p.en == null)
+        				message = { command: 'trackCustom', name: params.et, parameters: params };
+        			else
+        				message = { command: 'trackCustom', name: params.p.en, parameters: params };    
     				window.webkit.messageHandlers.datagran.postMessage(message);
   				} else {
     				// Call Web interface
