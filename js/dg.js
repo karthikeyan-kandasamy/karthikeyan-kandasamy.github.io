@@ -7,14 +7,13 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(l, s);
     w[o] = window[o] || [];
-    w[o].aid = "5ece1b5230df7bca16155d81";
+    w[o].aid = "5edef365368cd52c35c70eb1";
     w[o].wid = "5e70d08e3bf4f2a57966afca";
-    w[o].domain = "karthiktest.com";
-    w[o].internal_name = "Karthik_Test";
+    w[o].domain = "karthikeyan-kandasamy.github.io";
+    w[o].internal_name = "Karthik_Test_1";
 })(
   window, document,
   "js/datagran.js",
-  //"https://raw.githubusercontent.com/karthikeyan-kandasamy/karthikeyan-kandasamy.github.io/master/js/datagran.js",
   "datagran"
 );
 _dgTrack = function (n, p) {
